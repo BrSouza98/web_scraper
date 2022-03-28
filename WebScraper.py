@@ -26,12 +26,6 @@ class WebScraper:
     def addKeyword(self, keyword=['']):
         return self.keywords.append(keyword)
 
-    def getLinksCrawled(self):
-        return getattr(self, 'linksCrawled')
-
-    def addLinksCrawled(self, linksCrawled):
-        return self.linksCrawled.append(linksCrawled)
-
     def find_links_by_keywords(self):
         soup = BeautifulSoup(requests.get(self.getUrl(self)).content, 'html.parser')
         tags_a = soup.findAll('a')
